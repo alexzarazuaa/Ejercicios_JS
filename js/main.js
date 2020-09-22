@@ -1,8 +1,11 @@
-//declare string mode
+//declare strict mode
 'use strict';
+//import docReady;
+import docReady from './core/core';
 
-let myApp
-let stateApp="stop"
+//globalState
+let changeState = {stateApp:"stop"};
+
 
 let inicia = function(el) {
     // DOM is loaded and ready for manipulation here
@@ -32,10 +35,21 @@ let inicia = function(el) {
 
 
 
-let start =function start(){
-    stateApp="run"
-    myApp=setInterval(inicia(document.getElementById("ball")),50);
+export let start = function start(){
+    changeState.stateApp="run"
+    changeState.myApp=setInterval(inicia(document.getElementById("ball")),50);
 }
+
+
 docReady(start);
 
-//export default de start
+
+//EXPORT FUNCTION START
+export {start};
+
+
+
+
+
+
+

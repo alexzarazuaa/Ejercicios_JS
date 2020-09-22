@@ -1,4 +1,6 @@
-function docReady(fn) {
+// EXPORT DOCREADU FUNCTION
+export function docReady(fn) {
+
     // see if DOM is already available
     if (document.readyState === "complete" || document.readyState === "interactive") {
         // call on next available tick

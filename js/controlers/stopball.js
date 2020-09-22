@@ -1,10 +1,10 @@
-//import {start} from "../main.js";
+import {start} from "../main";
 
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
-        if (stateApp=="run"){
-            stateApp="stop";
-            clearInterval(myApp);
+        if (changeState.stateApp=="run"){
+            changeState.stateApp ="stop";
+            clearInterval();
         }else{            
             start();
         }
