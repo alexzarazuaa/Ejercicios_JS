@@ -1,7 +1,7 @@
 //declare strict mode
 'use strict';
 //import docReady;
-import docReady from './core/core';
+import  {docReady} from './core/core.js';
 
 //globalState
 let changeState = {stateApp:"stop"};
@@ -35,7 +35,7 @@ let inicia = function(el) {
 
 
 
-export let start = function start(){
+ let start = function start(){
     changeState.stateApp="run"
     changeState.myApp=setInterval(inicia(document.getElementById("ball")),50);
 }
