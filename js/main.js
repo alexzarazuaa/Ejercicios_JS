@@ -53,7 +53,7 @@ function main () {
 docReady(main);
 
 
-//EXPORT FUNCTION START
+//EXPORT FUNCTION CHANGE
 export {changeState};
 
 
