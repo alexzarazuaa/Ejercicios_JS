@@ -1,105 +1,113 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
-/******/ 			exports: {},
-/******/ 			id: moduleId,
-/******/ 			loaded: false
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
-/******/ 		module.loaded = true;
-
+/******/ 		module.l = true;
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./js/main.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, exports) {
+/******/ ({
 
-	//declare strict mode
-	'use strict';
-	//import docReady;
-	import  {docReady} from './core/core.js';
+/***/ "./js/core/core.js":
+/*!*************************!*\
+  !*** ./js/core/core.js ***!
+  \*************************/
+/*! exports provided: docReady */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-	//globalState
-	let changeState = {stateApp:"stop"};
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"docReady\", function() { return docReady; });\n// EXPORT DOCREADU FUNCTION\n function docReady(fn) {\n\n    // see if DOM is already available\n    if (document.readyState === \"complete\" || document.readyState === \"interactive\") {\n        // call on next available tick\n        fn();\n        //setTimeout(fn, 1);\n    } else {\n        document.addEventListener(\"DOMContentLoaded\", fn);\n    }\n}    \n\n\n\n\n//# sourceURL=webpack:///./js/core/core.js?");
 
+/***/ }),
 
-	let inicia = function(el) {
-	    // DOM is loaded and ready for manipulation here
-	    let speed = 15; //1 to 100
-	    let incX = speed * (Math.round(Math.random())?1:-1);
-	    let incY = speed * (Math.round(Math.random())?1:-1);
-	    //let el=document.getElementById("el");
+/***/ "./js/main.js":
+/*!********************!*\
+  !*** ./js/main.js ***!
+  \********************/
+/*! exports provided: start */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-	   let dw =function danceWorld(){
-	    
-	        x =  el.style.left?parseInt(el.style.left,10):350;
-	        y =  el.style.top?parseInt(el.style.top,10):400;
-
-	        el.style.left =  x + incX +"px";
-	        el.style.top = y + incY+"px";
-	    
-	        //Detect if we reach X coordinates limits
-	        if (((x+incX) > (window.innerWidth-40)) || ((x+incX)<=0))
-	            incX = (-1)*incX;
-	       
-	        //Detect if we reach Y coordinates limits
-	        if (((y+incY) > (window.innerHeight-40)) || ((y+incY) <= 0))
-	            incY = (-1)*incY;
-	    }
-	     return dw;
-	};
-
-
-
-	 let start = function start(){
-	    changeState.stateApp="run"
-	    changeState.myApp=setInterval(inicia(document.getElementById("ball")),50);
-	}
-
-
-	docReady(start);
-
-
-	//EXPORT FUNCTION START
-	export {start};
-
-
-
-
-
-
-
-
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"start\", function() { return start; });\n/* harmony import */ var _core_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core/core.js */ \"./js/core/core.js\");\n//declare strict mode\n\n//import docReady;\n\n\n//globalState\nlet changeState = {stateApp:\"stop\"};\n\n\nlet inicia = function(el) {\n    // DOM is loaded and ready for manipulation here\n    let speed = 15; //1 to 100\n    let incX = speed * (Math.round(Math.random())?1:-1);\n    let incY = speed * (Math.round(Math.random())?1:-1);\n    //let el=document.getElementById(\"el\");\n\n   let dw =function danceWorld(){\n    \n        x =  el.style.left?parseInt(el.style.left,10):350;\n        y =  el.style.top?parseInt(el.style.top,10):400;\n\n        el.style.left =  x + incX +\"px\";\n        el.style.top = y + incY+\"px\";\n    \n        //Detect if we reach X coordinates limits\n        if (((x+incX) > (window.innerWidth-40)) || ((x+incX)<=0))\n            incX = (-1)*incX;\n       \n        //Detect if we reach Y coordinates limits\n        if (((y+incY) > (window.innerHeight-40)) || ((y+incY) <= 0))\n            incY = (-1)*incY;\n    }\n     return dw;\n};\n\n\n\n let start = function start(){\n    changeState.stateApp=\"run\"\n    changeState.myApp=setInterval(inicia(document.getElementById(\"ball\")),50);\n}\n\n\nObject(_core_core_js__WEBPACK_IMPORTED_MODULE_0__[\"docReady\"])(start);\n\n\n//EXPORT FUNCTION START\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack:///./js/main.js?");
 
 /***/ })
-/******/ ]);
+
+/******/ });

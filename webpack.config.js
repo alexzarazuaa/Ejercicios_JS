@@ -13,13 +13,6 @@ module.exports = {
      port: 3000,
      inline: true
    },
-//    module: {
-//     loaders: [
-//        { 
-//           test: /\.css$/, 
-//           loader: 'style!css' 
-//        }
-//     ]
-//  }
+
 
  }

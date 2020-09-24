@@ -1,12 +1,13 @@
-import {start} from "../main";
+import {changeState} from "../main.js";
+
 
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
         if (changeState.stateApp=="run"){
             changeState.stateApp ="stop";
-            clearInterval();
+            clearInterval(changeState.myapp);
         }else{            
-            start();
+            changeState.myApp=setInterval(changeState.inicia(document.getElementById("ball")),10);
         }
     }
 }
